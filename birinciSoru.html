@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>birinciSoru</title>
+    <style>
+        /* Tablo stilini güncelleyelim */
+        table {
+            border-collapse: collapse;
+            width: 40%;
+        }
+
+        th, td, tr {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left; /* Soldan hizalama */
+        }
+
+            td:nth-child(3) {
+                width: 40%;
+                text-align: left; /* Soldan hizalama */
+            }
+
+        /* Form stilini güncelleyelim */
+        form {
+            display: inline-block; /* Form elementleri yan yana olacak */
+            width: 50%;
+            margin-right: 20px;
+        }
+
+
+        /* Submit butonunu sola hizalayalım */
+        button {
+            margin-top: 10px;
+        }
+        input{
+            text-align:left;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+        <form id="form1">
+            <h2>Kişiye Özel Tişört Sipariş Aracı</h2>
+            <br />
+            <hr />
+
+            <h5>Lütfen oluşturmak istediğiniz siparişe ilişkin aşağıdaki bilgileri doldurunuz:</h5>
+
+
+            <h3>Kişisel Bilgiler</h3>
+            <br />
+
+            <label for="name1">Adınız:</label>
+            <input type="text" id="name1" name="name1"><br>
+
+            <label for="surname1">Soyadınız:</label>
+            <input type="text" id="surname1" name="surname1" ><br>
+
+            <label for="date1">Doğum Tarihiniz: </label>
+            <input type="date" id="date1" name="date1" placeholder="gg.aa.yyyy" ><br>
+
+            <label for="email1">Mail Adresiniz:</label>
+            <input type="email" id="email1" name="email1" required><br>
+
+            <label for="phone1">Telefon:</label>
+            <input type="tel" id="phone1" name="phone1" placeholder="5XX-XXX-XXXX" ><br>
+            <hr />
+            <br />
+
+            <h3>Sipariş Bilgileri</h3>
+            <br />
+
+            <label for="favcolor">Tişört Rengi:</label>
+            <input type="color" id="favcolor" value="#00000"><br />
+
+            <label for="writecolor1">Yazı Rengi:</label>
+            <input type="color" id="writecolor1" value="#00000"><br>
+
+            <label for="write1">Tişört üzerinde yazacak yazıyı girin:</label>
+            <input type="text" id="write1" name="write1" ><br>
+
+            <label for="number1">Tişört Adeti:</label>
+            <input type="number" id="number1" name="number1"><br>
+
+            <label for="size1">Beden seçiniz:</label>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+
+            <button type="button" onclick="sec()">Seç</button>
+            <input type="text" id="sec1" name="sec1" ><br>
+            <br />
+            <h3>Teslimat Bilgileri</h3>
+            <br />
+            <label for="adress">Adres:</label>
+            <input type="text" id="adress" name="adress" /><br>
+
+            <label for="tarih">Teslim tarihi için bir aralık seçiniz:</label>
+            <input type="date" id="tarih" name="tarih" ><br>
+            <hr />
+
+            <h3>Ödeme Bilgileri</h3>
+            <br />
+            <label for="nameSurname">Ad Soyad :</label>
+            <input type="text" id="nameSurname" name="nameSurname" ><br>
+
+            <label for="creditCard">Kart Numarası :</label>
+            <input type="text" id="creditCard" name="creditCard" placeholder="XXXX-XXXX-XXXX-XXXX"><br>
+
+            <label for="lastdate">Son Kullanma Tarihi :</label>
+            <input type="date" id="lastdate" name="lastdate" ><br>
+
+
+            <label for="cvv">CVV :</label>
+            <input type="text" id="cvv" name="cvv" ><br>
+
+            <button type="button" onclick="onayla()">Onayla</button>
+        </form>
+
+    <br />
+    <br />
+    <br />
+
+
+    <table id="confirmationTable">
+        <tr>
+            <th colspan="3">SİPARİŞ ONAY</th>
+        </tr>
+        <tr>
+            <td rowspan="5">Kişisel Bilgiler</td>
+            <td>Ad:</td>
+            <td>   </td>
+        </tr>
+        <tr>
+            <td>Soyad:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Doğum Tarihi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Mail Adresi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Telefon:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan="5">Sipariş Bilgileri</td>
+            <td>Tişört Rengi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Yazı Rengi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Yazı:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tişört Adeti:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tişört Bedeni:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Teslimat Bilgileri</td>
+            <td>Adres:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Teslim Tarihi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan="4">Ödeme Bilgileri</td>
+            <td>Ad Soyad:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Kart Numarası:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Son Kullanma Tarihi:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CVV:</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <button type="button" onclick="tamamla()">Tamamla</button>
+
+    <script>
+        function sec() {
+
+            var sliderValue = document.getElementById("myRange").value;
+            document.getElementById("sec1").value = sliderValue;
+        }
+
+
+        function onayla() {
+            var ad = document.getElementById("name1").value;
+            var soyad = document.getElementById("surname1").value;
+            var dogumTarihi = document.getElementById("date1").value;
+            var mailAdresi = document.getElementById("email1").value;
+            var telefon = document.getElementById("phone1").value;
+
+            var tisortRengi = document.getElementById("favcolor").value;
+            var yaziRengi = document.getElementById("writecolor1").value;
+            var yazi = document.getElementById("write1").value;
+            var tisortAdeti = document.getElementById("number1").value;
+            var tisortBedeni = document.getElementById("sec1").value;
+
+            var adres = document.getElementById("adress").value;
+            var teslimTarihi = document.getElementById("tarih").value;
+
+            var adSoyad = document.getElementById("nameSurname").value;
+            var kartNumarasi = document.getElementById("creditCard").value;
+            var sonKullanmaTarihi = document.getElementById("lastdate").value;
+            var cvv = document.getElementById("cvv").value;
+
+            document.getElementById("confirmationTable").rows[1].cells[2].innerHTML = ad;
+            document.getElementById("confirmationTable").rows[2].cells[1].innerHTML = soyad;
+            document.getElementById("confirmationTable").rows[3].cells[1].innerHTML = dogumTarihi;
+            document.getElementById("confirmationTable").rows[4].cells[1].innerHTML = mailAdresi;
+            document.getElementById("confirmationTable").rows[5].cells[1].innerHTML = telefon;
+
+            document.getElementById("confirmationTable").rows[6].cells[2].innerHTML = `<div style="background-color:${tisortRengi}; width:30px; height:30px;"></div>`;
+            document.getElementById("confirmationTable").rows[7].cells[1].innerHTML = `<div style="background-color:${yaziRengi}; width:30px; height:30px;"></div>`;
+            document.getElementById("confirmationTable").rows[8].cells[1].innerHTML = yazi;
+            document.getElementById("confirmationTable").rows[9].cells[1].innerHTML = tisortAdeti;
+            document.getElementById("confirmationTable").rows[10].cells[1].innerHTML = tisortBedeni;
+
+            document.getElementById("confirmationTable").rows[11].cells[2].innerHTML = adres;
+            document.getElementById("confirmationTable").rows[12].cells[1].innerHTML = teslimTarihi;
+
+            document.getElementById("confirmationTable").rows[13].cells[2].innerHTML = adSoyad;
+            document.getElementById("confirmationTable").rows[14].cells[1].innerHTML = kartNumarasi;
+            document.getElementById("confirmationTable").rows[15].cells[1].innerHTML = sonKullanmaTarihi;
+            document.getElementById("confirmationTable").rows[16].cells[1].innerHTML = cvv;
+        }
+
+
+        const inputFields = document.querySelectorAll('input');
+        inputFields.forEach((input) => {
+            input.addEventListener('change', onayla);
+        });
+
+    </script>
+</body>
+</html>
